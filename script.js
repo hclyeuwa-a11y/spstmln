@@ -68,7 +68,7 @@ function sprite(c, x, y, o, bob = 0, tilt = 0, sc = 1) {
 /* ---------- 7 chặng, mỗi chặng một nhà tư tưởng ---------- */
 let LV = []; // được nạp từ lessons.json + data/*.md + quizData.js (xem loadSeed)
 /* ---------- Kho dữ liệu: nạp, lưu, chỉnh sửa ---------- */
-const QN = 5, DKEY = 'ktct-data-v1';
+const QN = 10, DKEY = 'ktct-data-v1';
 let SEED = []; // dữ liệu gốc đọc từ file, dùng cho nút "Đặt lại"
 const clone = o => JSON.parse(JSON.stringify(o));
 const SC = { books: 'Thư viện', stalls: 'Chợ', chim: 'Xưởng sợi', tower: 'Tháp', houses: 'Phố nhà', flags: 'Cờ hội', waves: 'Bến cảng' };

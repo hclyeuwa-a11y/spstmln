@@ -1,7 +1,7 @@
 // Kho câu hỏi theo từng chặng. Khóa là "id" của chặng trong lessons.json.
 // Mỗi câu gồm: question (câu hỏi), options (đúng 3 đáp án A, B, C),
 // answer (vị trí đáp án đúng: 0 = A, 1 = B, 2 = C), explanation (giải thích hiện sau khi trả lời).
-// Mỗi lượt chơi game tự rút ngẫu nhiên 5 câu và xáo thứ tự đáp án.
+// Mỗi lượt chơi game tự rút ngẫu nhiên 10 câu và xáo thứ tự đáp án.
 const quizData = {
   // Chặng 1: Lịch sử tư tưởng
   1: [
@@ -64,6 +64,66 @@ const quizData = {
       options: ["Trọng nông", "Cổ điển Anh", "Trọng thương"],
       answer: 2,
       explanation: "Trọng thương coi tiền tệ, vàng bạc là của cải thật sự."
+    },
+    {
+      question: "Thuật ngữ kinh tế chính trị lần đầu được nêu ra năm 1615 bởi ai?",
+      options: ["Antoine de Montchrétien", "Adam Smith", "Karl Marx"],
+      answer: 0,
+      explanation: "Ông dùng cụm từ này trong một tác phẩm về kinh tế chính trị xuất bản năm 1615."
+    },
+    {
+      question: "Thomas Mun là đại biểu của trường phái nào?",
+      options: ["Trọng nông", "Trọng thương", "Cổ điển Anh"],
+      answer: 1,
+      explanation: "Mun là nhà trọng thương người Anh, đề cao ngoại thương và xuất siêu."
+    },
+    {
+      question: "Ai được Marx coi là người sáng lập kinh tế chính trị học cổ điển Anh?",
+      options: ["Thomas Mun", "François Quesnay", "William Petty"],
+      answer: 2,
+      explanation: "Petty là người đầu tiên nghiên cứu giá trị gắn với lao động."
+    },
+    {
+      question: "Phái trọng nông ra đời ở nước nào?",
+      options: ["Anh", "Pháp", "Đức"],
+      answer: 1,
+      explanation: "Quesnay và các môn đồ hoạt động chủ yếu ở Pháp vào thế kỷ XVIII."
+    },
+    {
+      question: "Biểu kinh tế (1758) của Quesnay mô tả điều gì?",
+      options: ["Cách nhà nước thu thuế", "Giá vàng trên thị trường", "Quá trình tái sản xuất và lưu thông sản phẩm xã hội"],
+      answer: 2,
+      explanation: "Đây là mô hình đầu tiên về tái sản xuất toàn bộ nền kinh tế."
+    },
+    {
+      question: "Khái niệm bàn tay vô hình của Adam Smith nói về điều gì?",
+      options: ["Thị trường tự điều tiết thông qua lợi ích cá nhân", "Nhà nước chỉ huy mọi giao dịch", "Vàng bạc quyết định giá cả"],
+      answer: 0,
+      explanation: "Mỗi người theo đuổi lợi ích riêng nhưng thị trường điều phối chung như có bàn tay vô hình."
+    },
+    {
+      question: "Theo Smith, của cải của một quốc gia chủ yếu do đâu mà có?",
+      options: ["Chỉ từ nông nghiệp", "Lao động trong mọi ngành sản xuất", "Chỉ từ xuất khẩu vàng bạc"],
+      answer: 1,
+      explanation: "Smith mở rộng nguồn của cải sang lao động trong mọi ngành."
+    },
+    {
+      question: "Smith lấy ví dụ nào để minh họa lợi ích của phân công lao động?",
+      options: ["Xưởng đóng tàu", "Mỏ than", "Xưởng sản xuất đinh ghim"],
+      answer: 2,
+      explanation: "Chia nhỏ công đoạn làm tăng mạnh năng suất của mỗi công nhân."
+    },
+    {
+      question: "Lý thuyết lợi thế so sánh trong thương mại quốc tế gắn với tên tuổi nào?",
+      options: ["Adam Smith", "David Ricardo", "François Quesnay"],
+      answer: 1,
+      explanation: "Ricardo chỉ ra các nước đều có lợi khi chuyên môn hóa theo lợi thế so sánh."
+    },
+    {
+      question: "Theo Ricardo, khi tiền lương tăng thì lợi nhuận thường thế nào?",
+      options: ["Tăng theo", "Không liên quan", "Giảm đi"],
+      answer: 2,
+      explanation: "Ricardo cho rằng tiền lương và lợi nhuận vận động ngược chiều."
     }
   ],
 
@@ -128,6 +188,66 @@ const quizData = {
       options: ["Giá cao nhất", "Hao phí lao động xã hội cần thiết (ngang giá)", "Ý muốn của người bán"],
       answer: 1,
       explanation: "Trao đổi phải theo nguyên tắc ngang giá."
+    },
+    {
+      question: "Lao động sản xuất hàng hóa có tính hai mặt nào?",
+      options: ["Lao động cụ thể và lao động trừu tượng", "Lao động chân tay và lao động trí óc", "Lao động tư nhân và lao động nhà nước"],
+      answer: 0,
+      explanation: "Marx là người đầu tiên phát hiện tính hai mặt của lao động sản xuất hàng hóa."
+    },
+    {
+      question: "Lao động trừu tượng là gì?",
+      options: ["Việc làm ra một loại sản phẩm cụ thể", "Sự hao phí sức lực nói chung của con người, tạo ra giá trị", "Công việc không có ích"],
+      answer: 1,
+      explanation: "Lao động trừu tượng là cơ sở tạo ra giá trị của hàng hóa."
+    },
+    {
+      question: "Giá trị sử dụng của hàng hóa chỉ được thể hiện khi nào?",
+      options: ["Khi sản xuất", "Khi rao bán", "Khi sử dụng hay tiêu dùng"],
+      answer: 2,
+      explanation: "Công dụng của vật chỉ bộc lộ trong quá trình sử dụng."
+    },
+    {
+      question: "Giá trị trao đổi là gì?",
+      options: ["Tỷ lệ về lượng khi đổi giá trị sử dụng này lấy giá trị sử dụng khác", "Số tiền trong ví", "Chi phí vận chuyển"],
+      answer: 0,
+      explanation: "Giá trị trao đổi là hình thức biểu hiện của giá trị."
+    },
+    {
+      question: "Cường độ lao động tăng lên thì giá trị của một đơn vị hàng hóa thay đổi thế nào?",
+      options: ["Tăng", "Không đổi, nhưng tổng giá trị tạo ra tăng", "Giảm"],
+      answer: 1,
+      explanation: "Lao động khẩn trương hơn tạo ra nhiều sản phẩm hơn trong cùng thời gian nên tổng giá trị tăng."
+    },
+    {
+      question: "Trong cùng một thời gian, lao động phức tạp so với lao động giản đơn thì thế nào?",
+      options: ["Tạo ra ít giá trị hơn", "Tạo ra giá trị bằng nhau", "Tạo ra nhiều giá trị hơn"],
+      answer: 2,
+      explanation: "Lao động phức tạp được coi là lao động giản đơn được nhân lên."
+    },
+    {
+      question: "Sản xuất hàng hóa ra đời khi có điều kiện nào?",
+      options: ["Phân công lao động xã hội và sự tách biệt về kinh tế giữa các chủ thể", "Chỉ cần có tiền", "Chỉ cần có nhà nước"],
+      answer: 0,
+      explanation: "Hai điều kiện này cùng tồn tại thì mới có sản xuất hàng hóa."
+    },
+    {
+      question: "Trong công thức H–T–H, tiền đóng vai trò gì?",
+      options: ["Phương tiện cất trữ", "Môi giới trao đổi (phương tiện lưu thông)", "Tiền tệ thế giới"],
+      answer: 1,
+      explanation: "Tiền chỉ làm trung gian để đổi hàng này lấy hàng khác."
+    },
+    {
+      question: "Dùng tiền để trả nợ, nộp thuế là chức năng nào của tiền?",
+      options: ["Thước đo giá trị", "Phương tiện cất trữ", "Phương tiện thanh toán"],
+      answer: 2,
+      explanation: "Tiền thực hiện việc chi trả, không nhất thiết đi kèm giao hàng cùng lúc."
+    },
+    {
+      question: "Dùng tiền để thanh toán giữa các quốc gia là chức năng nào?",
+      options: ["Tiền tệ thế giới", "Phương tiện cất trữ", "Thước đo giá trị"],
+      answer: 0,
+      explanation: "Chức năng này đòi hỏi tiền có giá trị quốc tế được thừa nhận."
     }
   ],
 
@@ -192,6 +312,66 @@ const quizData = {
       options: ["c + v", "c + v + m", "v + m"],
       answer: 1,
       explanation: "W = c + v + m."
+    },
+    {
+      question: "Giá trị sử dụng đặc biệt của hàng hóa sức lao động là gì?",
+      options: ["Tạo ra giá trị lớn hơn giá trị của bản thân nó", "Bền hơn máy móc", "Rẻ hơn nguyên liệu"],
+      answer: 0,
+      explanation: "Đây là chìa khóa để giải thích nguồn gốc của giá trị thặng dư."
+    },
+    {
+      question: "Điều kiện để sức lao động trở thành hàng hóa là gì?",
+      options: ["Người lao động sở hữu nhà máy", "Người lao động tự do về thân thể và không có tư liệu sản xuất", "Người lao động bị cưỡng bức làm việc"],
+      answer: 1,
+      explanation: "Họ có quyền bán sức lao động và buộc phải bán để sống."
+    },
+    {
+      question: "Giá trị hàng hóa sức lao động được xác định bằng giá trị của gì?",
+      options: ["Lợi nhuận của nhà tư bản", "Giá máy móc", "Tư liệu sinh hoạt cần thiết để tái sản xuất sức lao động"],
+      answer: 2,
+      explanation: "Gồm cả nhu cầu của gia đình người lao động và chi phí học tập, đào tạo."
+    },
+    {
+      question: "Tiền công trong chủ nghĩa tư bản thực chất là gì?",
+      options: ["Giá cả của hàng hóa sức lao động", "Một phần lợi nhuận", "Quà tặng của nhà tư bản"],
+      answer: 0,
+      explanation: "Bề ngoài tiền công như giá cả của lao động nhưng thực chất là giá cả sức lao động."
+    },
+    {
+      question: "Ngày làm 10 giờ, trong đó 4 giờ là lao động tất yếu. Tỷ suất giá trị thặng dư là bao nhiêu?",
+      options: ["40%", "150%", "250%"],
+      answer: 1,
+      explanation: "m = 6 giờ, v = 4 giờ nên m' = 6/4 = 150%."
+    },
+    {
+      question: "Với m = 200 và v = 100, tỷ suất giá trị thặng dư là bao nhiêu?",
+      options: ["50%", "100%", "200%"],
+      answer: 2,
+      explanation: "m' = m/v = 200/100 = 200%."
+    },
+    {
+      question: "Tỷ suất giá trị thặng dư 100%, tổng tư bản khả biến 500 thì khối lượng giá trị thặng dư là bao nhiêu?",
+      options: ["100", "500", "5000"],
+      answer: 1,
+      explanation: "M = m' x V = 1 x 500 = 500."
+    },
+    {
+      question: "Tích lũy tư bản là gì?",
+      options: ["Cất tiền vào két sắt", "Vay thêm tiền ngân hàng", "Chuyển một phần giá trị thặng dư thành tư bản"],
+      answer: 2,
+      explanation: "Còn gọi là tư bản hóa giá trị thặng dư."
+    },
+    {
+      question: "Tích tụ tư bản làm tăng quy mô tư bản cá biệt bằng cách nào?",
+      options: ["Hợp nhất các tư bản có sẵn", "Tư bản hóa một phần giá trị thặng dư", "Nhà nước cấp vốn"],
+      answer: 1,
+      explanation: "Còn tập trung tư bản là hợp nhất các tư bản đã có."
+    },
+    {
+      question: "Cấu tạo hữu cơ của tư bản là gì?",
+      options: ["Tỷ lệ giữa tư bản bất biến và tư bản khả biến, do cấu tạo kỹ thuật quyết định", "Tỷ lệ lãi vay", "Tỷ lệ thuế"],
+      answer: 0,
+      explanation: "Ký hiệu c : v, phản ánh trình độ kỹ thuật."
     }
   ],
 
@@ -256,6 +436,66 @@ const quizData = {
       options: ["Cartel", "Syndicate", "Conglomerate"],
       answer: 2,
       explanation: "Conglomerate là tập đoàn đa ngành."
+    },
+    {
+      question: "Đặc điểm thứ năm của chủ nghĩa đế quốc theo Lenin là gì?",
+      options: ["Các cường quốc tư bản đã phân chia xong lãnh thổ thế giới", "Tự do cạnh tranh hoàn toàn", "Xóa bỏ ngân hàng"],
+      answer: 0,
+      explanation: "Đây là đặc điểm về sự phân chia lãnh thổ giữa các cường quốc."
+    },
+    {
+      question: "Đầu sỏ tài chính là gì?",
+      options: ["Mọi cổ đông nhỏ", "Một nhóm nhỏ tư bản tài chính chi phối toàn bộ đời sống kinh tế và chính trị", "Công nhân ngân hàng"],
+      answer: 1,
+      explanation: "Họ nắm các tổ chức độc quyền và chi phối cả bộ máy nhà nước."
+    },
+    {
+      question: "Consortium là hình thức độc quyền như thế nào?",
+      options: ["Hai cửa hàng nhỏ liên kết", "Một hợp tác xã nông nghiệp", "Liên minh nhiều ngân hàng và xí nghiệp nhiều ngành cùng thực hiện dự án lớn"],
+      answer: 2,
+      explanation: "Đây là hình thức liên kết đa ngành, do một nhóm tư bản tài chính chi phối."
+    },
+    {
+      question: "Sau khi độc quyền xuất hiện, cạnh tranh trong xã hội tư bản thế nào?",
+      options: ["Biến mất hoàn toàn", "Vẫn tồn tại và gay gắt hơn", "Chỉ còn trong nông nghiệp"],
+      answer: 1,
+      explanation: "Độc quyền không xóa bỏ được cạnh tranh mà làm cạnh tranh thêm phức tạp."
+    },
+    {
+      question: "Giá cả độc quyền được định như thế nào?",
+      options: ["Cao khi bán và thấp khi mua để thu lợi nhuận độc quyền", "Luôn bằng giá trị", "Luôn thấp hơn giá trị"],
+      answer: 0,
+      explanation: "Nhờ vị thế thống trị nên các tổ chức độc quyền áp đặt được giá."
+    },
+    {
+      question: "Lợi nhuận độc quyền là gì?",
+      options: ["Lợi nhuận thấp hơn bình quân", "Lợi nhuận bằng không", "Lợi nhuận cao hơn lợi nhuận bình quân"],
+      answer: 2,
+      explanation: "Đây là lợi nhuận thu được nhờ vị thế độc quyền."
+    },
+    {
+      question: "Độc quyền nhà nước là sự kết hợp nào?",
+      options: ["Sức mạnh của tổ chức độc quyền với sức mạnh của nhà nước", "Công đoàn với doanh nghiệp nhỏ", "Nông dân với địa chủ"],
+      answer: 0,
+      explanation: "Nhà nước tư sản phục vụ lợi ích của các tổ chức độc quyền."
+    },
+    {
+      question: "Chủ nghĩa tư bản độc quyền nhà nước phản ánh yêu cầu nào?",
+      options: ["Quay về sản xuất nhỏ", "Xã hội hóa lực lượng sản xuất ngày càng cao", "Xóa bỏ khoa học kỹ thuật"],
+      answer: 1,
+      explanation: "Quy mô sản xuất lớn đòi hỏi sự điều tiết chung của nhà nước."
+    },
+    {
+      question: "Biểu hiện nào thể hiện độc quyền nhà nước?",
+      options: ["Nhà nước cấm mọi doanh nghiệp", "Nhà nước bỏ mọi chính sách", "Nhà nước điều tiết kinh tế bằng thuế, tài chính, tiền tệ"],
+      answer: 2,
+      explanation: "Nhà nước dùng công cụ kinh tế để điều tiết theo lợi ích của tư bản lớn."
+    },
+    {
+      question: "Standard Oil gắn với tên tuổi nhà tư bản nào?",
+      options: ["Henry Ford", "John D. Rockefeller", "Andrew Carnegie"],
+      answer: 1,
+      explanation: "Standard Oil là ví dụ điển hình của Trust trong ngành dầu mỏ."
     }
   ],
 
@@ -320,6 +560,66 @@ const quizData = {
       options: ["Trọng nông", "Trọng thương", "Cổ điển Anh"],
       answer: 2,
       explanation: "Ricardo là đại biểu xuất sắc của trường phái cổ điển Anh."
+    },
+    {
+      question: "Cầu là gì?",
+      options: ["Nhu cầu có khả năng thanh toán về hàng hóa, dịch vụ", "Mong muốn bất kỳ nhưng không có tiền", "Số hàng hóa người bán đang có"],
+      answer: 0,
+      explanation: "Cầu gắn với khả năng thanh toán chứ không chỉ là mong muốn."
+    },
+    {
+      question: "Cung là gì?",
+      options: ["Số tiền người mua có", "Khối lượng hàng hóa có thể đưa ra bán ở mức giá nhất định", "Nhu cầu của xã hội"],
+      answer: 1,
+      explanation: "Cung phụ thuộc vào khả năng sản xuất và mức giá."
+    },
+    {
+      question: "Khi các yếu tố khác không đổi, giá tăng thì lượng cầu thường thế nào?",
+      options: ["Tăng", "Không đổi", "Giảm"],
+      answer: 2,
+      explanation: "Giá cao làm người mua giảm bớt lượng mua."
+    },
+    {
+      question: "Khi các yếu tố khác không đổi, giá tăng thì lượng cung thường thế nào?",
+      options: ["Tăng", "Giảm", "Không đổi"],
+      answer: 0,
+      explanation: "Giá cao làm người bán muốn bán nhiều hơn."
+    },
+    {
+      question: "Giá cân bằng xuất hiện khi nào?",
+      options: ["Cung gấp đôi cầu", "Cung bằng cầu", "Cầu bằng không"],
+      answer: 1,
+      explanation: "Tại điểm này lượng cung và lượng cầu bằng nhau."
+    },
+    {
+      question: "Giá thấp hơn giá trị kéo dài thì người sản xuất sẽ làm gì?",
+      options: ["Mở rộng sản xuất ồ ạt", "Tăng gấp đôi sản lượng", "Thu hẹp sản xuất hoặc chuyển sang ngành khác"],
+      answer: 2,
+      explanation: "Sản xuất không có lãi làm cung giảm và kéo giá lên lại."
+    },
+    {
+      question: "Giá cả cung cấp cho người sản xuất và người tiêu dùng thông tin gì?",
+      options: ["Tình hình cung cầu trên thị trường", "Thời tiết", "Lịch nghỉ lễ"],
+      answer: 0,
+      explanation: "Giá cả là tín hiệu giúp điều chỉnh quyết định sản xuất và tiêu dùng."
+    },
+    {
+      question: "Quy luật giá trị biểu hiện hoạt động thông qua yếu tố nào?",
+      options: ["Số dân", "Giá cả thị trường", "Diện tích đất"],
+      answer: 1,
+      explanation: "Giá cả lên xuống xoay quanh giá trị chính là hình thức hoạt động của quy luật giá trị."
+    },
+    {
+      question: "Quy luật giá trị kích thích điều gì?",
+      options: ["Lãng phí tài nguyên", "Ngừng sản xuất", "Cải tiến kỹ thuật, nâng cao năng suất lao động"],
+      answer: 2,
+      explanation: "Ai giảm được hao phí lao động cá biệt sẽ có lợi hơn."
+    },
+    {
+      question: "Hàng hóa khan hiếm làm giá tăng cao sẽ có tác động gì?",
+      options: ["Thu hút thêm người đầu tư sản xuất", "Khiến mọi người ngừng mua vĩnh viễn", "Khiến nhà nước thu hồi hàng"],
+      answer: 0,
+      explanation: "Lợi nhuận cao hút vốn và lao động vào ngành đó."
     }
   ],
 
@@ -384,6 +684,66 @@ const quizData = {
       options: ["Xóa bỏ kinh tế thị trường", "Đóng cửa với thế giới", "Giải phóng và phát triển lực lượng sản xuất"],
       answer: 2,
       explanation: "Đổi mới nhằm giải phóng sức sản xuất để dân giàu, nước mạnh."
+    },
+    {
+      question: "Mục tiêu của kinh tế thị trường định hướng XHCN ở Việt Nam là gì?",
+      options: ["Dân giàu, nước mạnh, dân chủ, công bằng, văn minh", "Chỉ tăng lợi nhuận", "Chỉ đẩy mạnh xuất khẩu"],
+      answer: 0,
+      explanation: "Đây là mục tiêu tổng quát của mô hình kinh tế."
+    },
+    {
+      question: "Cùng với kinh tế tập thể, thành phần nào là nền tảng của nền kinh tế quốc dân?",
+      options: ["Kinh tế tư nhân", "Kinh tế nhà nước", "Kinh tế có vốn nước ngoài"],
+      answer: 1,
+      explanation: "Kinh tế nhà nước giữ vai trò chủ đạo và cùng kinh tế tập thể là nền tảng."
+    },
+    {
+      question: "Ngoài phân phối theo lao động, Việt Nam còn có hình thức phân phối nào?",
+      options: ["Chia đều tuyệt đối", "Phân phối theo tuổi", "Theo mức đóng góp vốn, nguồn lực khác và qua phúc lợi xã hội"],
+      answer: 2,
+      explanation: "Nhiều hình thức phân phối cùng tồn tại, trong đó phân phối theo lao động là chủ yếu."
+    },
+    {
+      question: "Kinh tế thị trường định hướng XHCN gắn tăng trưởng với điều gì?",
+      options: ["Tiến bộ và công bằng xã hội", "Chỉ tăng trưởng nhanh", "Bỏ qua phúc lợi"],
+      answer: 0,
+      explanation: "Tăng trưởng phải đi đôi với thực hiện tiến bộ và công bằng xã hội."
+    },
+    {
+      question: "EVFTA là hiệp định thương mại tự do giữa Việt Nam và đối tác nào?",
+      options: ["Hoa Kỳ", "Liên minh châu Âu", "Nhật Bản"],
+      answer: 1,
+      explanation: "EVFTA là hiệp định giữa Việt Nam và Liên minh châu Âu."
+    },
+    {
+      question: "Đất đai ở Việt Nam thuộc hình thức sở hữu nào?",
+      options: ["Sở hữu tư nhân hoàn toàn", "Sở hữu nước ngoài", "Sở hữu toàn dân do Nhà nước đại diện chủ sở hữu"],
+      answer: 2,
+      explanation: "Nhà nước giao đất, cho thuê đất và trao quyền sử dụng cho tổ chức, cá nhân."
+    },
+    {
+      question: "Vai trò của Nhà nước trong kinh tế thị trường định hướng XHCN là gì?",
+      options: ["Quản lý, điều tiết và khắc phục khuyết tật của thị trường", "Thay thế hoàn toàn thị trường", "Đứng ngoài nền kinh tế"],
+      answer: 0,
+      explanation: "Nhà nước tạo môi trường pháp lý và điều tiết để thị trường vận hành hiệu quả."
+    },
+    {
+      question: "Ô nhiễm môi trường là biểu hiện của thất bại thị trường. Ai cần can thiệp?",
+      options: ["Chỉ doanh nghiệp tự lo", "Nhà nước bằng pháp luật và chính sách", "Chỉ người tiêu dùng"],
+      answer: 1,
+      explanation: "Thị trường không tự giải quyết được ngoại ứng tiêu cực nên cần Nhà nước."
+    },
+    {
+      question: "Điểm khác cơ bản so với kinh tế thị trường tư bản chủ nghĩa là gì?",
+      options: ["Không có thị trường", "Không có doanh nghiệp tư nhân", "Gắn tăng trưởng với công bằng xã hội, vì con người"],
+      answer: 2,
+      explanation: "Mục tiêu hướng đến sự phát triển toàn diện của con người."
+    },
+    {
+      question: "Khu vực có vốn đầu tư nước ngoài được xem là gì?",
+      options: ["Thành phần bị loại bỏ", "Bộ phận cấu thành quan trọng của nền kinh tế", "Thành phần duy nhất"],
+      answer: 1,
+      explanation: "Khu vực này đóng góp nhiều vào xuất khẩu và việc làm."
     }
   ],
 
@@ -448,6 +808,66 @@ const quizData = {
       options: ["1995", "2001", "2010"],
       answer: 0,
       explanation: "Việt Nam trở thành thành viên ASEAN năm 1995."
+    },
+    {
+      question: "Nguyễn Tất Thành rời Việt Nam năm 1911 trên con tàu nào?",
+      options: ["Amiral Latouche-Tréville", "Titanic", "Tàu Thống Nhất"],
+      answer: 0,
+      explanation: "Người làm phụ bếp trên con tàu này để ra nước ngoài tìm đường cứu nước."
+    },
+    {
+      question: "Bến cảng nơi Người xuống tàu năm 1911 là bến nào?",
+      options: ["Cảng Hải Phòng", "Bến Nhà Rồng (Sài Gòn)", "Cảng Cam Ranh"],
+      answer: 1,
+      explanation: "Bến Nhà Rồng là địa điểm khởi đầu hành trình tìm đường cứu nước."
+    },
+    {
+      question: "Dây chuyền lắp ráp hàng loạt của Ford thuộc cuộc cách mạng công nghiệp lần nào?",
+      options: ["Lần thứ nhất", "Lần thứ tư", "Lần thứ hai"],
+      answer: 2,
+      explanation: "Lần thứ hai gắn với điện khí hóa và sản xuất hàng loạt."
+    },
+    {
+      question: "Công nghiệp hóa, hiện đại hóa là gì?",
+      options: ["Chuyển đổi căn bản từ lao động thủ công sang lao động với công nghệ, phương tiện tiên tiến", "Quay về sản xuất thủ công", "Ngừng phát triển công nghiệp"],
+      answer: 0,
+      explanation: "Đó là quá trình chuyển đổi toàn diện các hoạt động kinh tế - xã hội."
+    },
+    {
+      question: "Công nghiệp hóa rút ngắn là gì?",
+      options: ["Dừng hẳn công nghiệp", "Tận dụng thành tựu khoa học công nghệ hiện đại để đi tắt, đón đầu", "Chỉ làm nông nghiệp"],
+      answer: 1,
+      explanation: "Nước đi sau có thể rút ngắn thời gian bằng cách tiếp thu công nghệ mới."
+    },
+    {
+      question: "Trong kinh tế tri thức, yếu tố nào đóng vai trò quan trọng nhất?",
+      options: ["Chỉ đất đai", "Chỉ sức cơ bắp", "Tri thức và công nghệ"],
+      answer: 2,
+      explanation: "Tri thức trở thành yếu tố sản xuất quan trọng hàng đầu."
+    },
+    {
+      question: "Hội nhập kinh tế quốc tế là gì?",
+      options: ["Quá trình gắn kết nền kinh tế một nước với khu vực và thế giới dựa trên chia sẻ lợi ích và tuân thủ chuẩn mực chung", "Đóng cửa biên giới", "Chỉ xuất khẩu gạo"],
+      answer: 0,
+      explanation: "Đó là quá trình mở cửa, liên kết và cùng tuân thủ luật chơi chung."
+    },
+    {
+      question: "FTA là viết tắt của cụm từ nào?",
+      options: ["Fast Transport Authority", "Free Trade Agreement", "Financial Tax Account"],
+      answer: 1,
+      explanation: "FTA là hiệp định thương mại tự do."
+    },
+    {
+      question: "CPTPP có hiệu lực với Việt Nam từ năm nào?",
+      options: ["2005", "2012", "2019"],
+      answer: 2,
+      explanation: "Hiệp định có hiệu lực với Việt Nam từ tháng 1 năm 2019."
+    },
+    {
+      question: "Việt Nam gia nhập APEC năm nào?",
+      options: ["1998", "2005", "2015"],
+      answer: 0,
+      explanation: "Việt Nam trở thành thành viên APEC năm 1998."
     }
   ]
 
