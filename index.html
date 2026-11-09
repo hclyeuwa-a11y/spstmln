@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đường đua kinh tế chính trị</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <section id="title">
+      <div class="hero">
+        <h1>Đường đua<br><em>kinh tế chính trị</em></h1>
+        <p class="sub">Chạy qua <span id="nlv">7</span> chặng, mỗi chặng do một nhà tư tưởng gác cổng. Né rào chắn, nhặt
+          xu và chạy vào làn có đáp án đúng.</p>
+        <div class="cast" id="cast"></div>
+      </div>
+      <div class="box start">
+        <div>Chọn nhân vật của bạn:</div>
+        <div class="picks" id="picks"></div>
+        <div class="row"><button class="btn big" id="go" disabled>Chơi</button><button class="btn alt big dbtn"
+            disabled>Kho dữ liệu</button><button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc:
+            tắt</button></div>
+      </div>
+    </section>
+
+    <section id="levels" hidden>
+      <div class="top">
+        <h2>Chọn chặng đua</h2>
+        <div class="row"><button class="btn alt dbtn">Kho dữ liệu</button><button class="btn alt music-toggle"
+            type="button" aria-pressed="false">♫ Nhạc: tắt</button><button class="btn alt" id="back0">Quay lại</button></div>
+      </div>
+      <div class="lvs" id="lvs"></div>
+    </section>
+
+    <section id="lab" hidden>
+      <div class="top">
+        <h2>Kho dữ liệu</h2>
+        <div class="row"><button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc: tắt</button><button
+            class="btn alt" id="lr">Đặt lại</button><button class="btn" id="lb">Xong</button></div>
+      </div>
+      <div class="lab">
+        <div class="box" id="lc"></div>
+        <div class="box" id="le"></div>
+      </div>
+    </section>
+
+    <section id="play" hidden>
+      <div class="hud">
+        <div class="pill"><span id="hn">Chặng 1</span></div>
+        <div class="pill"><b id="hh">♥♥♥</b></div>
+        <div class="pill">sao <b id="hs">0/5</b></div>
+        <div class="pill">xu <b id="hc">0</b></div>
+        <div class="prog" id="prog" aria-hidden="true"><i id="pgi"></i></div>
+        <button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc: tắt</button>
+        <button class="btn alt" id="menu">Menu</button>
+      </div>
+      <div id="cvw"><canvas id="cv" width="640" height="360" aria-label="Đường đua"></canvas></div>
+      <div class="box dlg" id="dlg" hidden>
+        <div class="who" id="who"><img id="pt" alt=""></div>
+        <div class="say">
+          <div class="nm" id="nm"></div>
+          <div class="rl" id="rl"></div>
+          <p class="tx" id="tx"></p>
+          <div class="row" id="bx"></div>
+        </div>
+      </div>
+      <div class="box qp" id="qp" aria-live="polite">
+        <div class="qh"><img id="qi" alt="">
+          <div>
+            <div class="nm" id="qn"></div>
+            <p class="qt" id="qt"></p>
+          </div>
+        </div>
+        <div class="ops" id="qo"></div>
+        <p class="qf" id="qf"></p>
+      </div>
+      <div class="pad"><button data-d="-1" aria-label="Làn trên">▲ Lên</button><button data-d="1"
+          aria-label="Làn dưới">▼ Xuống</button></div>
+    </section>
+
+    <footer>Nội dung theo slide môn MLN122. Nhân vật là tranh biếm họa vẽ bằng mã, lời kể do mình soạn lại.</footer>
+  </div>
+
+
+  <script src="quizData.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "title": "Lịch sử tư tưởng",
+    "character": "Adam Smith",
+    "shortName": "Smith",
+    "role": "Nhà kinh tế cổ điển (1723–1790), tác giả Của cải của các quốc gia",
+    "color": "#2D6A9F",
+    "sky": "#BFD6EE",
+    "ground": "#6F9A78",
+    "scene": "books",
+    "look": 0,
+    "file": "data/lesson-1.md"
+  },
+  {
+    "id": 2,
+    "title": "Hàng hóa và tiền",
+    "character": "Karl Marx",
+    "shortName": "Marx",
+    "role": "Triết gia, nhà kinh tế (1818–1883), tác giả bộ Tư bản",
+    "color": "#C9342B",
+    "sky": "#F7D9C4",
+    "ground": "#B5834F",
+    "scene": "stalls",
+    "look": 1,
+    "file": "data/lesson-2.md"
+  },
+  {
+    "id": 3,
+    "title": "Giá trị thặng dư",
+    "character": "Friedrich Engels",
+    "shortName": "Engels",
+    "role": "Nhà tư tưởng (1820–1895), từng làm ở xưởng sợi Manchester",
+    "color": "#4E8F5F",
+    "sky": "#D6E6C9",
+    "ground": "#7F8C73",
+    "scene": "chim",
+    "look": 2,
+    "file": "data/lesson-3.md"
+  },
+  {
+    "id": 4,
+    "title": "Độc quyền",
+    "character": "Vladimir Lenin",
+    "shortName": "Lenin",
+    "role": "Nhà cách mạng (1870–1924), tác giả Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản",
+    "color": "#7A4E9C",
+    "sky": "#D8D2EA",
+    "ground": "#6E6A86",
+    "scene": "tower",
+    "look": 3,
+    "file": "data/lesson-4.md"
+  },
+  {
+    "id": 5,
+    "title": "Cung cầu và giá trị",
+    "character": "David Ricardo",
+    "shortName": "Ricardo",
+    "role": "Nhà kinh tế cổ điển (1772–1823), tác giả Nguyên lý kinh tế chính trị và thuế khóa",
+    "color": "#B4572F",
+    "sky": "#F6E3C6",
+    "ground": "#B98E6A",
+    "scene": "houses",
+    "look": 4,
+    "file": "data/lesson-5.md"
+  },
+  {
+    "id": 6,
+    "title": "Kinh tế thị trường định hướng XHCN",
+    "character": "Nguyễn Văn Linh",
+    "shortName": "N.V. Linh",
+    "role": "Tổng Bí thư (1915–1998), người mở đường cho công cuộc Đổi mới",
+    "color": "#C9342B",
+    "sky": "#F2D2CC",
+    "ground": "#8C9B6A",
+    "scene": "flags",
+    "look": 5,
+    "file": "data/lesson-6.md"
+  },
+  {
+    "id": 7,
+    "title": "CNH-HĐH và hội nhập",
+    "character": "Hồ Chí Minh",
+    "shortName": "Bác Hồ",
+    "role": "Lãnh tụ cách mạng Việt Nam (1890–1969), năm 1911 rời bến cảng Sài Gòn tìm đường cứu nước",
+    "color": "#2D6A9F",
+    "sky": "#BFE2EE",
+    "ground": "#5E8FA8",
+    "scene": "waves",
+    "look": 6,
+    "file": "data/lesson-7.md"
+  }
+]
