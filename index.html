@@ -26,7 +26,8 @@
       <div class="box start">
         <div>Chọn nhân vật của bạn:</div>
         <div class="picks" id="picks"></div>
-        <div class="row"><button class="btn big" id="go" disabled>Chơi</button><button class="btn alt big dbtn"
+        <div class="row"><button class="btn big" id="go" disabled>Chơi</button><button class="btn alt big theory-btn"
+            type="button" disabled>Lý thuyết</button><button class="btn alt big dbtn"
             disabled>Kho dữ liệu</button><button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc:
             tắt</button></div>
       </div>
@@ -35,7 +36,7 @@
     <section id="levels" hidden>
       <div class="top">
         <h2>Chọn chặng đua</h2>
-        <div class="row"><button class="btn alt dbtn">Kho dữ liệu</button><button class="btn alt music-toggle"
+        <div class="row"><button class="btn alt theory-btn" type="button" disabled>Lý thuyết</button><button class="btn alt dbtn">Kho dữ liệu</button><button class="btn alt music-toggle"
             type="button" aria-pressed="false">♫ Nhạc: tắt</button><button class="btn alt" id="back0">Quay lại</button></div>
       </div>
       <div class="lvs" id="lvs"></div>
@@ -44,12 +45,35 @@
     <section id="lab" hidden>
       <div class="top">
         <h2>Kho dữ liệu</h2>
-        <div class="row"><button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc: tắt</button><button
+        <div class="row"><button class="btn alt theory-btn" type="button" disabled>Lý thuyết</button><button class="btn alt music-toggle" type="button" aria-pressed="false">♫ Nhạc: tắt</button><button
             class="btn alt" id="lr">Đặt lại</button><button class="btn" id="lb">Xong</button></div>
       </div>
       <div class="lab">
         <div class="box" id="lc"></div>
         <div class="box" id="le"></div>
+      </div>
+    </section>
+
+    <section id="theory" hidden>
+      <header class="theory-hero">
+        <p class="theory-kicker">Không gian học tập · 7 chủ đề</p>
+        <h2>Kinh tế chính trị<br><span>Mác – Lênin</span></h2>
+        <p class="theory-intro">Hệ thống các chuyên đề lý thuyết của học phần.</p>
+        <button class="btn theory-back" type="button">← Trở về màn hình trò chơi</button>
+      </header>
+      <div class="theory-layout">
+        <nav class="theory-nav box" aria-label="Các chủ đề lý thuyết">
+          <h3>Các chủ đề</h3>
+          <div id="theory-topics"></div>
+        </nav>
+        <article class="theory-reader box" aria-live="polite">
+          <div class="theory-reader-head">
+            <span class="theory-number" id="theory-number"></span>
+            <span class="theory-label">Chuyên đề</span>
+          </div>
+          <h3 id="theory-title"></h3>
+          <div class="theory-content" id="theory-content" aria-live="polite"></div>
+        </article>
       </div>
     </section>
 

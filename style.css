@@ -618,6 +618,227 @@ footer {
     font-size: 13.5px
 }
 
+/* Không gian lý thuyết */
+.theory-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(24px, 6vw, 48px);
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    color: #fffaf0;
+    background: linear-gradient(120deg, #681c1c, #9f2d25 66%, #bd5034);
+    box-shadow: 6px 6px 0 var(--ink)
+}
+
+.theory-hero::after {
+    position: absolute;
+    z-index: -1;
+    right: -48px;
+    bottom: -156px;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(242, 181, 53, .42);
+    border-radius: 50%;
+    box-shadow: 0 0 0 18px rgba(242, 181, 53, .07), 0 0 0 42px rgba(242, 181, 53, .06);
+    content: ""
+}
+
+.theory-kicker {
+    margin: 0 0 8px;
+    color: #f7d88e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.theory-hero h2 {
+    margin: 0;
+    font-size: clamp(36px, 7vw, 58px);
+    line-height: 1;
+    text-shadow: 3px 3px 0 rgba(24, 38, 43, .6)
+}
+
+.theory-hero h2 span {
+    color: #f2c65f
+}
+
+.theory-intro {
+    margin: 12px 0 20px;
+    max-width: 460px;
+    color: #fff1db
+}
+
+.theory-back {
+    background: #fff8e9
+}
+
+.theory-layout {
+    display: grid;
+    grid-template-columns: minmax(230px, .82fr) minmax(0, 1.6fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 22px
+}
+
+.theory-nav,
+.theory-reader {
+    border-color: #563333;
+    box-shadow: 4px 4px 0 #563333
+}
+
+.theory-nav {
+    padding: 14px
+}
+
+.theory-nav h3 {
+    margin: 0 0 10px;
+    color: #72251f;
+    font: 800 22px 'Baloo 2', 'Be Vietnam Pro', sans-serif
+}
+
+#theory-topics {
+    display: grid;
+    gap: 8px
+}
+
+.theory-topic {
+    display: grid;
+    grid-template-columns: 32px 1fr 18px;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    padding: 9px 10px;
+    border: 2px solid #d8cbb7;
+    border-radius: 8px;
+    color: var(--ink);
+    background: #fffdf7;
+    text-align: left;
+    font: 600 13px/1.35 'Be Vietnam Pro', sans-serif;
+    cursor: pointer;
+    transition: background .12s, border-color .12s, transform .12s
+}
+
+.theory-topic:hover {
+    transform: translateX(2px);
+    border-color: #a63c30
+}
+
+.theory-topic[aria-pressed=true] {
+    border-color: #842b24;
+    background: #f5e5ce;
+    box-shadow: inset 4px 0 0 #a83227
+}
+
+.theory-topic-number {
+    color: #a83227;
+    font: 800 16px 'Baloo 2', 'Be Vietnam Pro', sans-serif
+}
+
+.theory-topic-arrow {
+    color: #a83227;
+    font-size: 18px;
+    text-align: right
+}
+
+.theory-reader {
+    min-height: 340px;
+    padding: clamp(18px, 4vw, 30px);
+    background-color: #fffdf7;
+    background-image: repeating-linear-gradient(0deg, transparent 0 35px, rgba(114, 37, 31, .035) 35px 36px)
+}
+
+.theory-reader-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #762820
+}
+
+.theory-number {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 2px solid #762820;
+    border-radius: 50%;
+    color: #762820;
+    font: 800 21px 'Baloo 2', 'Be Vietnam Pro', sans-serif
+}
+
+.theory-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.theory-reader h3 {
+    margin: 18px 0 24px;
+    color: #62231e;
+    font: 800 clamp(24px, 4vw, 32px)/1.2 'Baloo 2', 'Be Vietnam Pro', sans-serif
+}
+
+.theory-content {
+    color: #352f29;
+    font-size: 15px;
+    line-height: 1.8
+}
+
+.theory-content h4 {
+    margin: 26px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #dbc9af;
+    color: #762820;
+    font: 800 20px/1.35 'Baloo 2', 'Be Vietnam Pro', sans-serif
+}
+
+.theory-content h4:first-child {
+    margin-top: 0
+}
+
+.theory-content p {
+    margin: 10px 0;
+    overflow-wrap: anywhere
+}
+
+.theory-content ul,
+.theory-content ol {
+    margin: 8px 0 16px;
+    padding-left: 24px
+}
+
+.theory-content li {
+    margin: 7px 0;
+    padding-left: 3px
+}
+
+.theory-content li::marker {
+    color: #a83227;
+    font-weight: 700
+}
+
+.theory-math {
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: #762820;
+    background: #f2e6d3;
+    font-family: Georgia, serif;
+    font-style: italic;
+    white-space: nowrap
+}
+
+@media(max-width:640px) {
+    .theory-layout {
+        grid-template-columns: 1fr
+    }
+
+    .theory-reader {
+        min-height: 280px
+    }
+}
+
 @media(prefers-reduced-motion:reduce) {
     .cast img {
         animation: none

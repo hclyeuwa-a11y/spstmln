@@ -155,6 +155,8 @@ function renderLab() {
 $('#lr').onclick = () => { if (!SEED.length) return alert('Chưa tải được dữ liệu gốc từ file.'); if (!confirm('Xóa mọi chỉnh sửa và quay về dữ liệu có sẵn?')) return; try { localStorage.removeItem(DKEY) } catch (e) { } DB = clone(SEED); sel = 0; qi = -1; commit() };
 $('#lb').onclick = () => show('title');
 $$('.dbtn').forEach(b => b.onclick = () => { sel = Math.min(sel, DB.length - 1); qi = -1; renderLab(); show('lab') });
+$$('.theory-btn').forEach(b => b.onclick = openTheory);
+$('.theory-back').onclick = closeTheory;
 const LET = 'ABC';
 
 /* ---------- Nạp dữ liệu từ file ---------- */
@@ -181,10 +183,12 @@ async function boot() {
   }
   applyDB(DB); refresh();
   $('#go').disabled = false; $$('.dbtn').forEach(b => b.disabled = false);
+  $$('.theory-btn').forEach(b => b.disabled = false);
 }
 
 /* ---------- Trạng thái ---------- */
 let prog = { done: [], st: [], coins: 0, hero: 0 }, scr = 'title', G = null, t = 0, last = 0;
+let theoryTopic = 0, theoryReturnScreen = 'title', theoryContent = null, theoryContentRequest = null;
 try { const o = JSON.parse(localStorage.getItem(KEY)); if (o) prog = Object.assign(prog, o) } catch (e) { }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(prog)) } catch (e) { } };
 const PT = [];
@@ -370,7 +374,7 @@ function draw() {
 function frame(ts) { const dt = Math.min(.05, (ts - last) / 1000 || 0); last = ts; t += dt; update(dt); if (scr === 'play' && G) draw(); requestAnimationFrame(frame) }
 
 /* ---------- Màn hình ---------- */
-function show(id) { ['title', 'levels', 'play', 'lab'].forEach(s => $('#' + s).hidden = s !== id); scr = id }
+function show(id) { ['title', 'levels', 'play', 'lab', 'theory'].forEach(s => $('#' + s).hidden = s !== id); scr = id }
 function toLevels() { G = null; show('levels'); renderLevels() }
 function startLevel(li) {
   prog.hero = prog.hero | 0; G = newRun(li); PT.length = 0; show('play'); hud(); tip(); $('#pgi').style.width = '0';
@@ -393,6 +397,128 @@ function renderLevels() {
     tx.append(mk('span', 'lvn', 'Chặng ' + (i + 1)), mk('span', null, L.t), mk('br'), mk('span', null, L.w), mk('br'), mk('span', 'stars', '★'.repeat(Math.min(s, QN)) + '☆'.repeat(Math.max(0, QN - s)) + (open ? '' : '  (khóa)')));
     b.append(pw, tx); b.onclick = () => startLevel(i); box.append(b);
   });
+}
+function selectTheoryTopic(index) {
+  $('#theory-number').textContent = String(index + 1).padStart(2, '0');
+  $('#theory-title').textContent = theoryContent ? theoryContent[index].title : DB[index].t;
+  $$('.theory-topic', $('#theory-topics')).forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+  if (theoryContent) renderTheoryContent(theoryContent[index].body);
+}
+function renderTheory() {
+  const topics = $('#theory-topics'); topics.textContent = '';
+  DB.forEach((L, i) => {
+    const b = mk('button', 'theory-topic'); b.type = 'button'; b.setAttribute('aria-pressed', 'false');
+    b.append(mk('span', 'theory-topic-number', String(i + 1).padStart(2, '0')), mk('span', 'theory-topic-title', theoryContent ? theoryContent[i].title : L.t), mk('span', 'theory-topic-arrow', '→'));
+    b.onclick = () => { theoryTopic = i; selectTheoryTopic(i) };
+    topics.append(b);
+  });
+  theoryTopic = Math.min(theoryTopic, DB.length - 1);
+  selectTheoryTopic(theoryTopic);
+}
+function parseTheoryContent(markdown) {
+  const headings = [], headingPattern = /^## CHỦ ĐỀ \d+:\s*(.+)$/gm;
+  let match;
+  while ((match = headingPattern.exec(markdown)) !== null) {
+    headings.push({ title: match[1].trim(), start: headingPattern.lastIndex, end: match.index });
+  }
+  if (headings.length !== 7) throw new Error('Dữ liệu cần có đúng 7 chủ đề.');
+  return headings.map((heading, i) => ({
+    title: heading.title,
+    body: markdown.slice(heading.start, i + 1 < headings.length ? headings[i + 1].end : markdown.length).trim()
+  }));
+}
+async function loadTheoryContent() {
+  if (theoryContent) return theoryContent;
+  if (!theoryContentRequest) {
+    theoryContentRequest = fetch('data/theory.md').then(response => {
+      if (!response.ok) throw new Error('data/theory.md (' + response.status + ')');
+      return response.text();
+    }).then(parseTheoryContent);
+  }
+  try {
+    theoryContent = await theoryContentRequest;
+    return theoryContent;
+  } catch (error) {
+    theoryContentRequest = null;
+    throw error;
+  }
+}
+function appendTheoryInline(target, text) {
+  const pattern = /\*\*[^*]+\*\*|\*[^*]+\*|\$[^$]+\$/g;
+  let cursor = 0, match;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > cursor) target.append(document.createTextNode(text.slice(cursor, match.index)));
+    const token = match[0], node = document.createElement(token.startsWith('**') ? 'strong' : token.startsWith('*') ? 'em' : 'span');
+    if (token.startsWith('$')) {
+      node.className = 'theory-math';
+      node.textContent = token.slice(1, -1).replace(/\\Delta/g, 'Δ').replace(/\\rightarrow/g, '→').replace(/\\approx/g, '≈').replace(/\\text\{([^}]+)\}/g, '$1');
+    } else {
+      appendTheoryInline(node, token.slice(token.startsWith('**') ? 2 : 1, token.startsWith('**') ? -2 : -1));
+    }
+    target.append(node);
+    cursor = pattern.lastIndex;
+  }
+  if (cursor < text.length) target.append(document.createTextNode(text.slice(cursor)));
+}
+function renderTheoryContent(markdown) {
+  const root = $('#theory-content');
+  root.textContent = '';
+  let list = null, listType = '', paragraph = [];
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    const p = document.createElement('p');
+    appendTheoryInline(p, paragraph.join(' '));
+    root.append(p);
+    paragraph = [];
+  };
+  const closeList = () => { list = null; listType = '' };
+  markdown.split(/\r?\n/).forEach(rawLine => {
+    const line = rawLine.trim();
+    if (!line) { flushParagraph(); closeList(); return; }
+    if (line.startsWith('### ')) {
+      flushParagraph(); closeList();
+      const heading = document.createElement('h4');
+      appendTheoryInline(heading, line.slice(4));
+      root.append(heading);
+      return;
+    }
+    const bullet = line.match(/^- (.+)$/), numbered = line.match(/^\d+\.\s+(.+)$/);
+    if (bullet || numbered) {
+      flushParagraph();
+      const type = numbered ? 'ol' : 'ul';
+      if (listType !== type) {
+        closeList();
+        list = document.createElement(type);
+        root.append(list);
+        listType = type;
+      }
+      const item = document.createElement('li');
+      appendTheoryInline(item, (bullet || numbered)[1]);
+      list.append(item);
+      return;
+    }
+    closeList();
+    paragraph.push(line);
+  });
+  flushParagraph();
+}
+async function openTheory() {
+  theoryReturnScreen = scr;
+  renderTheory();
+  show('theory');
+  if (theoryContent) return;
+  $('#theory-content').textContent = 'Đang tải nội dung lý thuyết...';
+  try {
+    await loadTheoryContent();
+    renderTheory();
+  } catch (error) {
+    $('#theory-content').textContent = 'Không thể tải nội dung lý thuyết. Vui lòng kiểm tra kết nối rồi thử mở lại màn hình.';
+    console.error('Không thể tải nội dung lý thuyết:', error);
+  }
+}
+function closeTheory() {
+  if (theoryReturnScreen === 'levels') renderLevels();
+  show(theoryReturnScreen);
 }
 
 /* ---------- Điều khiển ---------- */
